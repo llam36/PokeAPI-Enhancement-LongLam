@@ -1,4 +1,4 @@
-//   api/ endpoint
+//   api/
 import axios from 'axios'
 
 function getRandomInt(min, max) {
@@ -16,11 +16,13 @@ export default function handler(req, res) {
                 response.data.types.forEach(element => {
                     type.push(element.type.name);
                 });
+                res.status(200); //success
                 return res.json({"name": response.data.name, 
                                 "sprite": response.data.sprites.front_shiny, 
                                 "types": type})
             })
             .catch(function (error) {
+                res.status(400); //failure
                 console.log(error);
             })
     }
