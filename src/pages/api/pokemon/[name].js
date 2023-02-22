@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default function handler(req, res) {
     if (req.method == 'GET') {
-        let url = 'https://pokeapi.co/api/v2/pokemon/' + req.;
+        let url = 'https://pokeapi.co/api/v2/pokemon/' + req.query.name;
         axios.get(url)
             .then(function (response) {
                 const type = [];
@@ -10,7 +10,7 @@ export default function handler(req, res) {
                     type.push(element.type.name);
                 });
                 res.status(200); //success
-                return res.json({"name": response.data.name, 
+                return res.json({"pokemonName": response.data.name, 
                                 "sprite": response.data.sprites.front_shiny, 
                                 "types": type})
             })
