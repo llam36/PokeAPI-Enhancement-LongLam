@@ -8,7 +8,7 @@ const fetcher = async (url) => {
 }
 
 export default function Evolve() {
-    const name = "pikachu"
+    const name = "raichu"
     const { data, error, isLoading, isValidating } = useSWR(`/api/evolve/${name}`, fetcher)
     if (isLoading) return <div>Loading</div>
     if (!data) return (

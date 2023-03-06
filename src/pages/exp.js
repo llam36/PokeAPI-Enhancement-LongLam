@@ -9,7 +9,7 @@ const fetcher = async (url) => {
 
 export default function Exp() {
     const level = 5
-    const name = "pikachu"
+    const name = "bulbasaur"
     const { data, error, isLoading, isValidating } = useSWR(`/api/experience/${name}?level=${level}`, fetcher)
     if (isLoading) return <div>Loading</div>
     if (!data) return (
